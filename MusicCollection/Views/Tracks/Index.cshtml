@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MusicCollection.Models.Track>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container">
+    <h2 class="page-header text-center">Tracks</h2>
+
+    <p class="text-center">
+        <font size="4">
+            @Html.ActionLink("Add new song", "Create")
+        </font>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                <font size="3">
+                    <b>
+                        Band Name
+                    </b>
+                </font>
+            </th>
+            <th>
+                <font size="3">
+                    <b>
+                        Band Name
+                    </b>
+                </font>
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BandCD.BandName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrackName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.TrackId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.TrackId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.TrackId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

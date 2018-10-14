@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MusicCollection.Models.BandCD>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container">
+    <h2 class="page-header text-center">CD Collection</h2>
+    <div class="text-center">
+        <p>
+            <font size="4">
+                 @Html.ActionLink("Add new CD", "Create")
+            </font>
+        </p>
+
+        @using (Html.BeginForm())
+        {
+        <p>
+            <font size="3">
+                Find by name: @Html.TextBox("SearchString")
+                <input type="submit" value="Search" />
+            </font>
+        </p>
+        }
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.ActionLink("Band Name", "Index", new { sortOrder = ViewBag.NameSortParamB })
+            </th>
+            <th>
+                @Html.ActionLink("Album Name", "Index", new { sortOrder = ViewBag.NameSortParamA })
+            </th>
+            <th>Options</th>
+            <th></th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BandName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AlbumName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BandCDId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.BandCDId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BandCDId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

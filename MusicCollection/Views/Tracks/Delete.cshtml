@@ -1,0 +1,41 @@
+﻿@model MusicCollection.Models.Track
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h3 class="page-header text-center">Are you sure you want to delete this?</h3>
+<br />
+<br />
+<div>
+
+    <dl class="text-center">
+
+        <dd>
+            <font size="3">
+                <b>Band Name:</b>
+                @Html.DisplayFor(model => model.BandCD.BandName)
+            </font>
+        </dd>
+
+        <dd>
+            <font size="3">
+                <b>Band Name:</b>
+                @Html.DisplayFor(model => model.TrackName)
+            </font>
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color text-center">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

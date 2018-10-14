@@ -1,0 +1,33 @@
+﻿@model MusicCollection.Models.Track
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="page-header text-center">Details</h2>
+
+<div>
+    <h4 class="page-header text-center">Track</h4>
+    <dl class="text-center">
+        <dt>
+            @Html.DisplayNameFor(model => model.BandCD.BandName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BandCD.BandName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrackName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrackName)
+        </dd>
+
+    </dl>
+</div>
+<p class="text-center">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TrackId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

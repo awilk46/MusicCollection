@@ -1,0 +1,48 @@
+﻿@model MusicCollection.Models.BandCD
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="page-header text-center">CD Tracks</h2>
+
+<div>
+
+    <dl class="text-center">
+
+        <dd>
+            <font size="3">
+                <b> Band Name:</b> @Html.DisplayFor(model => model.BandName)
+            </font>
+        </dd>
+
+        <dd>
+            <font size="3">
+                <b>Album Name:</b> @Html.DisplayFor(model => model.AlbumName)
+            </font>
+            <br />
+        </dd>
+
+        <dd>
+            <table class="table text-center">
+                <tr>
+                    <th> <font size="3"><center>Track List</center></font></th>
+                </tr>
+                @foreach (var item in Model.Track)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TrackName)
+                        </td>
+
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<p class="text-center">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BandCDId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
